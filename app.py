@@ -21,14 +21,14 @@ st.set_page_config(
 # ───────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Pretendard:wght@300;400;500;600;700&display=swap');
 
 * { box-sizing: border-box; }
 
 .stApp {
-    background: #0a0e1a;
-    color: #e2e8f0;
-    font-family: 'DM Sans', 'Noto Sans KR', sans-serif;
+    background: #f0f4f8;
+    color: #1e293b;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
 }
 
 .main .block-container {
@@ -38,8 +38,7 @@ st.markdown("""
 
 /* 헤더 */
 .dash-header {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-    border: 1px solid #334155;
+    background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #1d4ed8 100%);
     border-radius: 16px;
     padding: 28px 36px;
     margin-bottom: 24px;
@@ -49,39 +48,40 @@ st.markdown("""
 .dash-header::before {
     content: '';
     position: absolute;
-    top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+    top: -40px; right: -40px;
+    width: 180px; height: 180px;
+    background: rgba(255,255,255,0.08);
     border-radius: 50%;
 }
 .dash-header::after {
     content: '';
     position: absolute;
-    bottom: -40px; left: 40%;
-    width: 300px; height: 150px;
-    background: radial-gradient(ellipse, rgba(99,102,241,0.08) 0%, transparent 70%);
+    bottom: -50px; left: 30%;
+    width: 250px; height: 120px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
 }
 .header-title {
     font-size: 1.8rem;
-    font-weight: 600;
-    color: #f1f5f9;
+    font-weight: 700;
+    color: #ffffff;
     margin: 0 0 6px;
     letter-spacing: -0.5px;
 }
 .header-sub {
     font-size: 0.9rem;
-    color: #64748b;
+    color: rgba(255,255,255,0.75);
     margin: 0;
 }
 .header-badge {
     display: inline-block;
-    background: rgba(59,130,246,0.15);
-    color: #60a5fa;
-    border: 1px solid rgba(59,130,246,0.3);
+    background: rgba(255,255,255,0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,0.3);
     border-radius: 20px;
     padding: 3px 12px;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
@@ -93,63 +93,64 @@ st.markdown("""
     margin-bottom: 20px;
 }
 .kpi-card {
-    background: #111827;
-    border: 1px solid #1f2937;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 20px 22px;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.2s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s;
 }
-.kpi-card:hover { border-color: #374151; }
+.kpi-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
 .kpi-label {
     font-size: 0.72rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
 .kpi-value {
     font-size: 2.4rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1;
     margin-bottom: 6px;
-    font-family: 'DM Sans', sans-serif;
 }
 .kpi-desc {
     font-size: 0.75rem;
-    color: #4b5563;
+    color: #94a3b8;
 }
-.kpi-green  { border-left: 3px solid #22c55e; }
-.kpi-yellow { border-left: 3px solid #f59e0b; }
-.kpi-red    { border-left: 3px solid #ef4444; }
-.kpi-blue   { border-left: 3px solid #3b82f6; }
-.kpi-green  .kpi-label { color: #4ade80; }
-.kpi-yellow .kpi-label { color: #fbbf24; }
-.kpi-red    .kpi-label { color: #f87171; }
-.kpi-blue   .kpi-label { color: #60a5fa; }
-.kpi-green  .kpi-value { color: #4ade80; }
-.kpi-yellow .kpi-value { color: #fbbf24; }
-.kpi-red    .kpi-value { color: #f87171; }
-.kpi-blue   .kpi-value { color: #93c5fd; }
+.kpi-green  { border-top: 4px solid #22c55e; }
+.kpi-yellow { border-top: 4px solid #f59e0b; }
+.kpi-red    { border-top: 4px solid #ef4444; }
+.kpi-blue   { border-top: 4px solid #3b82f6; }
+.kpi-green  .kpi-label { color: #16a34a; }
+.kpi-yellow .kpi-label { color: #d97706; }
+.kpi-red    .kpi-label { color: #dc2626; }
+.kpi-blue   .kpi-label { color: #2563eb; }
+.kpi-green  .kpi-value { color: #15803d; }
+.kpi-yellow .kpi-value { color: #b45309; }
+.kpi-red    .kpi-value { color: #b91c1c; }
+.kpi-blue   .kpi-value { color: #1d4ed8; }
 
 /* 섹션 카드 */
 .section-card {
-    background: #111827;
-    border: 1px solid #1f2937;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 20px 22px;
     margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 .section-title {
     font-size: 0.85rem;
-    font-weight: 600;
-    color: #94a3b8;
+    font-weight: 700;
+    color: #475569;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     margin-bottom: 16px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #1f2937;
+    border-bottom: 1px solid #f1f5f9;
 }
 
 /* 진행률 바 */
@@ -161,7 +162,7 @@ st.markdown("""
 }
 .progress-label {
     font-size: 0.8rem;
-    color: #94a3b8;
+    color: #475569;
     min-width: 140px;
     white-space: nowrap;
     overflow: hidden;
@@ -169,17 +170,17 @@ st.markdown("""
 }
 .progress-track {
     flex: 1;
-    height: 6px;
-    background: #1f2937;
-    border-radius: 3px;
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 4px;
     overflow: hidden;
 }
-.progress-fill-g { background: #22c55e; height: 6px; border-radius: 3px; }
-.progress-fill-y { background: #f59e0b; height: 6px; border-radius: 3px; }
-.progress-fill-r { background: #ef4444; height: 6px; border-radius: 3px; }
+.progress-fill-g { background: #22c55e; height: 8px; border-radius: 4px; }
+.progress-fill-y { background: #f59e0b; height: 8px; border-radius: 4px; }
+.progress-fill-r { background: #ef4444; height: 8px; border-radius: 4px; }
 .progress-pct {
     font-size: 0.78rem;
-    font-weight: 600;
+    font-weight: 700;
     min-width: 38px;
     text-align: right;
 }
@@ -191,46 +192,46 @@ st.markdown("""
     font-size: 0.82rem;
 }
 .issue-table th {
-    background: #0f172a;
+    background: #f8fafc;
     color: #64748b;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.72rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     padding: 10px 12px;
     text-align: left;
-    border-bottom: 1px solid #1f2937;
+    border-bottom: 2px solid #e2e8f0;
 }
 .issue-table td {
     padding: 11px 12px;
-    border-bottom: 1px solid #1a2233;
-    color: #cbd5e1;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
     vertical-align: middle;
 }
-.issue-table tr:hover td { background: #161f2e; }
-.badge-g { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; font-weight: 600; }
-.badge-y { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; font-weight: 600; }
-.badge-r { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; font-weight: 600; }
-.badge-none { background: rgba(100,116,139,0.15); color: #64748b; border: 1px solid rgba(100,116,139,0.3); border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; }
+.issue-table tr:hover td { background: #f8fafc; }
+.badge-g { background: #dcfce7; color: #16a34a; border: 1px solid #bbf7d0; border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700; }
+.badge-y { background: #fef9c3; color: #ca8a04; border: 1px solid #fde68a; border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700; }
+.badge-r { background: #fee2e2; color: #dc2626; border: 1px solid #fecaca; border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; font-weight: 700; }
+.badge-none { background: #f1f5f9; color: #94a3b8; border: 1px solid #e2e8f0; border-radius: 20px; padding: 2px 10px; font-size: 0.72rem; }
 
 /* 고객사 태그 */
-.tag-tesla  { background: rgba(239,68,68,0.15); color: #f87171; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 600; }
-.tag-renault{ background: rgba(99,102,241,0.15); color: #a5b4fc; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 600; }
-.tag-nexteer{ background: rgba(20,184,166,0.15); color: #2dd4bf; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 600; }
-.tag-other  { background: rgba(100,116,139,0.15); color: #94a3b8; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 600; }
+.tag-tesla  { background: #fee2e2; color: #b91c1c; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 700; }
+.tag-renault{ background: #ede9fe; color: #6d28d9; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 700; }
+.tag-nexteer{ background: #ccfbf1; color: #0f766e; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 700; }
+.tag-other  { background: #f1f5f9; color: #475569; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; font-weight: 700; }
 
 /* 업로드 영역 */
 .upload-zone {
-    background: #0f172a;
-    border: 2px dashed #334155;
+    background: #ffffff;
+    border: 2px dashed #cbd5e1;
     border-radius: 16px;
     padding: 48px;
     text-align: center;
     margin: 40px 0;
 }
 .upload-icon { font-size: 3rem; margin-bottom: 16px; }
-.upload-title { font-size: 1.2rem; font-weight: 600; color: #94a3b8; margin-bottom: 8px; }
-.upload-desc { font-size: 0.85rem; color: #475569; }
+.upload-title { font-size: 1.2rem; font-weight: 600; color: #334155; margin-bottom: 8px; }
+.upload-desc { font-size: 0.85rem; color: #94a3b8; }
 
 /* 필터 바 */
 .filter-bar {
@@ -240,26 +241,24 @@ st.markdown("""
     flex-wrap: wrap;
 }
 
-/* Streamlit 컴포넌트 덮어쓰기 */
-.stSelectbox > div > div { background: #111827 !important; border-color: #1f2937 !important; color: #e2e8f0 !important; }
-.stFileUploader { background: transparent !important; }
-div[data-testid="stFileUploader"] { background: #0f172a; border: 2px dashed #334155; border-radius: 16px; padding: 20px; }
+/* Streamlit 컴포넌트 */
+div[data-testid="stFileUploader"] { background: #ffffff; border: 2px dashed #cbd5e1; border-radius: 16px; padding: 20px; }
 .stButton > button {
-    background: #1e3a5f !important;
-    color: #60a5fa !important;
-    border: 1px solid #2563eb !important;
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border: none !important;
     border-radius: 8px !important;
-    font-weight: 500 !important;
+    font-weight: 600 !important;
 }
-.stButton > button:hover { background: #2563eb !important; color: white !important; }
-.stTabs [data-baseweb="tab"] { background: transparent !important; color: #64748b !important; }
-.stTabs [aria-selected="true"] { color: #60a5fa !important; border-bottom: 2px solid #3b82f6 !important; }
-h1,h2,h3 { color: #f1f5f9 !important; }
+.stButton > button:hover { background: #1d4ed8 !important; }
+.stTabs [data-baseweb="tab"] { color: #64748b !important; font-weight: 500 !important; }
+.stTabs [aria-selected="true"] { color: #2563eb !important; border-bottom: 2px solid #2563eb !important; font-weight: 700 !important; }
+h1,h2,h3 { color: #1e293b !important; }
 
-/* 새 이슈 입력 폼 */
+/* 폼 카드 */
 .form-card {
-    background: #0f172a;
-    border: 1px solid #334155;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 20px;
     margin-top: 12px;
@@ -756,7 +755,7 @@ with tab4:
 
 # ── 마지막 업데이트 ──────────────────────
 st.markdown(f"""
-<div style="text-align:center;color:#1f2937;font-size:0.75rem;margin-top:24px;padding-top:16px;border-top:1px solid #1f2937">
+<div style="text-align:center;color:#94a3b8;font-size:0.75rem;margin-top:24px;padding-top:16px;border-top:1px solid #e2e8f0">
   CTR 선행개발품질팀 · OPEN ISSUE 대시보드 · 마지막 갱신: {datetime.now().strftime('%Y-%m-%d %H:%M')}
 </div>
 """, unsafe_allow_html=True)
